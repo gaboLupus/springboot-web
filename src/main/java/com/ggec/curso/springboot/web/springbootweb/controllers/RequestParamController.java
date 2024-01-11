@@ -11,10 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * 
+ */
 @RestController
 @RequestMapping("/api/params")
 public class RequestParamController {
 
+    /**
+     * 
+     * @param message
+     * @return
+     */
     @GetMapping("/foo")
     public ParamDto foo(
             @RequestParam(required = false, defaultValue = "Hola que tal") String message) {
@@ -23,6 +31,12 @@ public class RequestParamController {
         return dto;
     }
 
+    /**
+     * 
+     * @param text
+     * @param code
+     * @return
+     */
     @GetMapping("/bar")
     public ParamMixDto bar(
             @RequestParam String text,
@@ -33,6 +47,11 @@ public class RequestParamController {
         return params;
     }
 
+    /**
+     * 
+     * @param request
+     * @return
+     */
     @GetMapping("/request")
     public ParamMixDto request(HttpServletRequest request) {
         ParamMixDto params = new ParamMixDto();
